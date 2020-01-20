@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="row">
+                <div class="col-md-10">
+                    <form action="" method="get" class="form form-inline">
+                        {% bootstrap_form filter.form layout='inline' %}
+                        {% bootstrap_button '검색' %}
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-primary btn-block" href="{% url 'event:create' %}">행사생성</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            {% render_table table %}
+        </div>
+    </div>
+{% endblock %}
